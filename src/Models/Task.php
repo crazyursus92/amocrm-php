@@ -39,6 +39,11 @@ class Task extends AbstractModel
         'created_user_id',
     ];
 
+    protected $actionsUrl = [
+        'list' => '/private/api/v2/json/tasks/list',
+        'set' => '/private/api/v2/json/tasks/set'
+    ];
+
     /**
      * @const int Типа задачи Контакт
      */

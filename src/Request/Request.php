@@ -29,27 +29,27 @@ class Request
     /**
      * @var bool Флаг вывода отладочной информации
      */
-    private $debug = false;
+    protected $debug = false;
 
     /**
      * @var ParamsBag|null Экземпляр ParamsBag для хранения аргументов
      */
-    private $parameters = null;
+    protected $parameters = null;
 
     /**
      * @var CurlHandle Экземпляр CurlHandle
      */
-    private $curlHandle;
+    protected $curlHandle;
 
     /**
      * @var int|null Последний полученный HTTP код
      */
-    private $lastHttpCode = null;
+    protected $lastHttpCode = null;
 
     /**
      * @var string|null Последний полученный HTTP ответ
      */
-    private $lastHttpResponse = null;
+    protected $lastHttpResponse = null;
 
     /**
      * Request constructor
