@@ -83,7 +83,7 @@ class Task extends AbstractModel
      */
     public function apiList($parameters, $modified = null)
     {
-        $response = $this->getRequest('/private/api/v2/json/tasks/list', $parameters, $modified);
+        $response = $this->getRequest($this->actionsUrl['list'], $parameters, $modified);
 
         return isset($response['tasks']) ? $response['tasks'] : [];
     }
@@ -113,7 +113,7 @@ class Task extends AbstractModel
             $parameters['tasks']['add'][] = $task->getValues();
         }
 
-        $response = $this->postRequest('/private/api/v2/json/tasks/set', $parameters);
+        $response = $this->postRequest($this->actionsUrl['set'], $parameters);
 
         if (isset($response['tasks']['add'])) {
             $result = array_map(function($item) {
@@ -155,7 +155,7 @@ class Task extends AbstractModel
 
         $parameters['tasks']['update'][] = $task;
 
-        $response = $this->postRequest('/private/api/v2/json/tasks/set', $parameters);
+        $response = $this->postRequest($this->actionsUrl['set'], $parameters);
 
         return empty($response['tasks']['update']['errors']);
     }
